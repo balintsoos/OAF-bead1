@@ -65,7 +65,7 @@ void Set::put(int n)
 	{
 		if (!isContain(n))
 		{
-			int * temp = new int[++size];
+			int * temp = new int[size+1];
 			int i = 0;
 			int tempI = 0;
 			bool Nfound = false;
@@ -92,6 +92,7 @@ void Set::put(int n)
 			}
 			delete[] items;
 			items = temp;
+			size++;
 			cout << n << " added to set" << endl;
 		}
 		else
