@@ -11,15 +11,8 @@ Set::Set()
 
 Set::Set(int n)
 {
+	Set();
 	put(n);
-}
-
-Set::Set(int (&n)[])
-{
-	for (int i = 0; i < sizeOf(n); ++i)
-	{
-		put(n[i]);
-	}
 }
 
 Set::~Set()
@@ -27,7 +20,7 @@ Set::~Set()
 	delete[] items;
 }
 
-Set::Set(const Set &s)
+Set::Set(Set& s)
 {
 	size = s.size;
 	items = new int[size];
@@ -37,7 +30,7 @@ Set::Set(const Set &s)
 	}
 }
 
-Set& Set::operator= (const Set &s)
+Set& Set::operator= (Set& s)
 {
 	if (this == &s) return *this;
 	delete[] items;
@@ -47,6 +40,7 @@ Set& Set::operator= (const Set &s)
 	{
 		items[i] = s.items[i];
 	}
+	return *this;
 }
 
 void Set::put(int n)
@@ -87,17 +81,40 @@ void Set::put(int n)
 			}
 			delete[] items;
 			items = temp;
+			cout << n << " added to set" << endl;
+		}
+		else
+		{
+			cout << "Set already contains " << n << endl;
 		}
 	}
 }
 
 void Set::remove(int n)
 {
-	//TODO
+	if(isContain(n))
+	{
+		int * temp = new int[--size];
+		int tempI = 0;
+		for (int i = 0; i < size; ++i)
+		{
+			if(items[i] != n)
+			{
+				temp[tempI++] = items[i];
+			}
+		}
+		delete[] items;
+		items = temp;
+	}
+	else
+	{
+		cout << "Set doesn't contain " << n << endl;
+	}
 }
 
 void Set::print()
 {
+	cout << "\nSize of Set: " << size << endl;
 	for (int i = 0; i < size; ++i)
 	{
 		cout << items[i] << endl;
@@ -106,7 +123,8 @@ void Set::print()
 
 bool Set::isContain(int n)
 {
-	for (int i = 0, bool found = false; (i <= size) && (!found); ++i)
+    bool found = false;
+    for (int i = 0; (i <= size) && (!found); ++i)
 	{
 		if (items[i] == n)
 		{

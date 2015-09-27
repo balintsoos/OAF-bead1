@@ -6,11 +6,10 @@ class Set
 	public:
 		Set();
 		Set(int n);
-		Set(int (&n)[]);
 		~Set();
 
-		Set(const Set &s);
-		Set& operator= (const Set &s);
+		Set(Set& s);
+		Set& operator= (Set& s);
 
 		void put(int n);
 		void remove(int n);
