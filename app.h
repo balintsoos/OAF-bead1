@@ -32,6 +32,7 @@ class App
 		void print();
 		void isContain();
 		void isEmpty();
+		void intersection();
 };
 
 #endif

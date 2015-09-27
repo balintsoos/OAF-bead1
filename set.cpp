@@ -56,8 +56,10 @@ void Set::put(int n)
 {
 	if (size == 0)
 	{
+		delete[] items;
 		items = new int[++size];
 		items[0] = n;
+		cout << n << " added to set" << endl;
 	}
 	else
 	{
@@ -67,7 +69,7 @@ void Set::put(int n)
 			int i = 0;
 			int tempI = 0;
 			bool Nfound = false;
-			for (; (i < size) && (!Nfound); ++i)
+			for (; (i < size) && (!Nfound); i++)
 			{
 				if (items[i] > n)
 				{
@@ -124,7 +126,8 @@ void Set::remove(int n)
 
 void Set::print()
 {
-	cout << "\nSize of Set: " << size << endl;
+	cout << "\nSize: " << size << endl;
+	cout << "Items: ";
 	for (int i = 0; i < size; ++i)
 	{
 		cout << items[i] << " ";
@@ -132,10 +135,16 @@ void Set::print()
 	cout << endl;
 }
 
+void Set::intersection(Set& s)
+{
+	print();
+	s.print();
+}
+
 bool Set::isContain(int n)
 {
-    bool found = false;
-    for (int i = 0; (i <= size) && (!found); ++i)
+	bool found = false;
+  for (int i = 0; (i < size) && (!found); ++i)
 	{
 		if (items[i] == n)
 		{

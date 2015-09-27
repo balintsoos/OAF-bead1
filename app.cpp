@@ -49,6 +49,7 @@ void App::run()
 			case 5: print(); break;
 			case 6: isContain(); break;
 			case 7: isEmpty(); break;
+			case 8: intersection(); break;
 		}
 	} while (v != 0);
 }
@@ -58,6 +59,7 @@ void App::displayNav()
 	cout << "-------------------------------" << endl;
 	cout << "Current set: Set " << currentSet << endl;
 	cout << "Methods:" << endl;
+	cout << "0 - EXIT" << endl;
 	cout << "1 - Create a new set" << endl;
 	cout << "2 - Change current set" << endl;
 	cout << "3 - Put a new item to current set" << endl;
@@ -65,6 +67,7 @@ void App::displayNav()
 	cout << "5 - Print current set" << endl;
 	cout << "6 - Check current set contains an item" << endl;
 	cout << "7 - Check current set is empty" << endl;
+	cout << "8 - Intersection of two sets" << endl;
 }
 
 void App::newSet()
@@ -146,3 +149,20 @@ void App::isEmpty()
 		cout << "\nSet " << currentSet << " isn't empty"<< endl;
 	}
 }
+
+void App::intersection()
+{
+	int setNumber = -1;
+	cout << "Set number: ";
+	cin >> setNumber;
+	if(setNumber < size)
+	{
+		cout << "Intersection of Set " << currentSet << " and Set " << setNumber << endl;
+		sets[currentSet].intersection(sets[setNumber]);
+	}
+	else
+	{
+		cout << "Set " << setNumber << " doesn't exist" << endl;
+	}
+}
+

@@ -23,6 +23,7 @@ class Set
 		void put(int n);
 		void remove(int n);
 		void print();
+		void intersection(Set& s);
 		bool isContain(int n);
 		bool isEmpty();
 	
