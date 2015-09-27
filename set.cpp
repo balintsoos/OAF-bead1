@@ -105,6 +105,7 @@ void Set::remove(int n)
 		}
 		delete[] items;
 		items = temp;
+		cout << n << " removed from set" << endl;
 	}
 	else
 	{
@@ -117,8 +118,9 @@ void Set::print()
 	cout << "\nSize of Set: " << size << endl;
 	for (int i = 0; i < size; ++i)
 	{
-		cout << items[i] << endl;
+		cout << items[i] << " ";
 	}
+	cout << endl;
 }
 
 bool Set::isContain(int n)

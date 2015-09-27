@@ -46,6 +46,7 @@ void App::run()
 
 void App::displayNav()
 {
+	cout << "-------------------------------" << endl;
 	cout << "Current set: Set " << currentSet << endl;
 	cout << "Methods:" << endl;
 	cout << "1 - Create a new set" << endl;
@@ -62,17 +63,18 @@ void App::newSet()
 	if(size < 10)
 	{
 		sets[size] = *(new Set());
-		cout << "Set " << size << " created" << endl;
+		cout << "\nSet " << size << " created" << endl;
 		size++;
 	}
 	else
 	{
-		cout << "You can't create more than 10 sets" << endl;
+		cout << "\nYou can't create more than 10 sets" << endl;
 	}
 }
 
 void App::changeCurrentSet()
 {
+	cout << "\nChange current set" << endl;
 	int setNumber = -1;
 	cout << "Set number: ";
 	cin >> setNumber;
@@ -87,6 +89,7 @@ void App::changeCurrentSet()
 
 void App::put()
 {
+	cout << "\nPut a new item to current set" << endl;
 	int item = -1;
 	cout << "Item: ";
 	cin >> item;
@@ -95,6 +98,7 @@ void App::put()
 
 void App::remove()
 {
+	cout << "\nRemove an item from current set" << endl;
 	int item = -1;
 	cout << "Item: ";
 	cin >> item;
@@ -108,6 +112,7 @@ void App::print()
 
 void App::isContain()
 {
+	cout << "\nCheck current set contains an item" << endl;
 	int item = -1;
 	cout << "Item: ";
 	cin >> item;
@@ -125,10 +130,10 @@ void App::isEmpty()
 {
 	if(sets[currentSet].isEmpty())
 	{
-		cout << "Set " << currentSet << " is empty"<< endl;
+		cout << "\nSet " << currentSet << " is empty"<< endl;
 	}
 	else
 	{
-		cout << "Set " << currentSet << " isn't empty"<< endl;
+		cout << "\nSet " << currentSet << " isn't empty"<< endl;
 	}
 }
