@@ -1,9 +1,10 @@
 //
-//  main.cpp
-//  oafbead
+// main.cpp
+// OAF - 1. beadando - 7. feladat
 //
-//  Created by Balint Soos on 9/27/15.
-//  Copyright © 2015 Balint Soos. All rights reserved.
+// Soos Balint
+// HDX9MU
+// 2015.09.27.
 //
 
 #include <iostream>

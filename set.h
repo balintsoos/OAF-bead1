@@ -1,3 +1,12 @@
+//
+// set.h
+// OAF - 1. beadando - 7. feladat
+//
+// Soos Balint
+// HDX9MU
+// 2015.09.27.
+//
+
 #ifndef SET_H
 #define SET_H
 
