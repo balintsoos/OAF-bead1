@@ -26,6 +26,7 @@ class Set
 		void intersection(Set& s);
 		bool isContain(int n);
 		bool isEmpty();
+		int setSize();
 	
 	private:
 		int * items;

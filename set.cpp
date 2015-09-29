@@ -136,10 +136,33 @@ void Set::print()
 	cout << endl;
 }
 
+int Set::setSize()
+{
+	return size;
+}
+
 void Set::intersection(Set& s)
 {
 	print();
 	s.print();
+	if(!isEmpty() && !s.isEmpty())
+	{
+		cout << "\nIntersection: " << endl;
+		//int length = (size <= s.setSize()) ? size : s.setSize();
+		int i = 0;
+		int is = 0;
+		while(i < size || is < s.setSize())
+		{
+			if(s.isContain(items[i]))
+			{
+				cout << items[i] << " ";
+			}
+		}
+	}
+	else
+	{
+		cout << "\nIntersection is an empty set" << endl;
+	}
 }
 
 bool Set::isContain(int n)
