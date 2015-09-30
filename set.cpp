@@ -104,7 +104,7 @@ void Set::put(int n)
 
 void Set::remove(int n)
 {
-	if(isContain(n))
+	if (isContain(n))
 	{
 		int * temp = new int[--size];
 		int tempI = 0;
@@ -136,26 +136,41 @@ void Set::print()
 	cout << endl;
 }
 
-int Set::setSize()
+int Set::getSize()
 {
 	return size;
+}
+
+int Set::getItems()
+{
+	return * items;
 }
 
 void Set::intersection(Set& s)
 {
 	print();
 	s.print();
-	if(!isEmpty() && !s.isEmpty())
+	if (!isEmpty() && !s.isEmpty())
 	{
 		cout << "\nIntersection: " << endl;
-		//int length = (size <= s.setSize()) ? size : s.setSize();
-		int i = 0;
-		int is = 0;
-		while(i < size || is < s.setSize())
+		int i = size;
+		int si = s.getSize();
+		int * sitems = s.getItems();
+		while (i >= 0 && si >= 0)
 		{
-			if(s.isContain(items[i]))
+			if (items[i] < sitems[si])
+			{
+				i--;
+			}
+			if (items[i] > sitems[si])
+			{
+				si--;
+			}
+			if (items[i] == sitems[si])
 			{
 				cout << items[i] << " ";
+				i--;
+				si--;
 			}
 		}
 	}
