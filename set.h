@@ -27,7 +27,7 @@ class Set
 		bool isContain(int n);
 		bool isEmpty();
 		int getSize();
-		int getItems();
+		int * getItems();
 	
 	private:
 		int * items;

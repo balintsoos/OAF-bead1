@@ -141,9 +141,9 @@ int Set::getSize()
 	return size;
 }
 
-int Set::getItems()
+int * Set::getItems()
 {
-	return * items;
+	return items;
 }
 
 void Set::intersection(Set& s)
@@ -153,26 +153,28 @@ void Set::intersection(Set& s)
 	if (!isEmpty() && !s.isEmpty())
 	{
 		cout << "\nIntersection: " << endl;
-		int i = size;
-		int si = s.getSize();
+		int iofThis = size-1;
+		int iofArg = s.getSize()-1;
 		int * sitems = s.getItems();
-		while (i >= 0 && si >= 0)
+
+		while (iofThis >= 0 && iofArg >= 0)
 		{
-			if (items[i] < sitems[si])
+			if (items[iofThis] > sitems[iofArg])
 			{
-				i--;
+				iofThis--;
 			}
-			if (items[i] > sitems[si])
+			if (items[iofThis] < sitems[iofArg])
 			{
-				si--;
+				iofArg--;
 			}
-			if (items[i] == sitems[si])
+			if (items[iofThis] == sitems[iofArg])
 			{
-				cout << items[i] << " ";
-				i--;
-				si--;
+				cout << items[iofThis] << " ";
+				iofThis--;
+				iofArg--;
 			}
 		}
+		cout << endl;
 	}
 	else
 	{
