@@ -59,7 +59,6 @@ void Set::put(int n)
 		delete[] items;
 		items = new int[++size];
 		items[0] = n;
-		cout << n << " added to set" << endl;
 	}
 	else
 	{
@@ -93,11 +92,10 @@ void Set::put(int n)
 			delete[] items;
 			items = temp;
 			size++;
-			cout << n << " added to set" << endl;
 		}
 		else
 		{
-			cout << "Set already contains " << n << endl;
+			throw CONTAIN;
 		}
 	}
 }
@@ -117,11 +115,10 @@ void Set::remove(int n)
 		}
 		delete[] items;
 		items = temp;
-		cout << n << " removed from set" << endl;
 	}
 	else
 	{
-		cout << "Set doesn't contain " << n << endl;
+		throw INVALID_ITEM;
 	}
 }
 
@@ -148,11 +145,8 @@ int * Set::getItems()
 
 void Set::intersection(Set& s)
 {
-	print();
-	s.print();
 	if (!isEmpty() && !s.isEmpty())
 	{
-		cout << "\nIntersection: " << endl;
 		int iofThis = size-1;
 		int iofArg = s.getSize()-1;
 		int * sitems = s.getItems();
@@ -178,7 +172,7 @@ void Set::intersection(Set& s)
 	}
 	else
 	{
-		cout << "\nIntersection is an empty set" << endl;
+		throw EMPTY;
 	}
 }
 

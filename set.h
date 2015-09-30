@@ -13,6 +13,7 @@
 class Set 
 {
 	public:
+		enum Exceptions{EMPTY, CONTAIN, INVALID_ITEM};
 		Set();
 		Set(int n);
 		~Set();

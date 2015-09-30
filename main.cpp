@@ -15,8 +15,8 @@ using namespace std;
 
 int main ()
 {
-    App *a = new App();
-    a->run();
+    App a;
+    a.run();
     
     return 0;
 }

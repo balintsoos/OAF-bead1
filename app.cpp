@@ -105,7 +105,14 @@ void App::put()
 	int item = -1;
 	cout << "Item: ";
 	cin >> item;
-	sets[currentSet].put(item);
+	try {
+		sets[currentSet].put(item);
+	} catch (Set::Exceptions ex) {
+		switch (ex)
+		{
+			case Set::CONTAIN : cout << "Set already contains " << item << endl; break;
+		}
+	}
 }
 
 void App::remove()
@@ -114,7 +121,14 @@ void App::remove()
 	int item = -1;
 	cout << "Item: ";
 	cin >> item;
-	sets[currentSet].remove(item);
+	try {
+		sets[currentSet].remove(item);
+	} catch (Set::Exceptions ex) {
+		switch (ex)
+		{
+			case Set::INVALID_ITEM : cout << "Set doesn't contain " << item << endl; break;
+		}
+	}
 }
 
 void App::print()
@@ -158,7 +172,17 @@ void App::intersection()
 	if(setNumber < size)
 	{
 		cout << "Intersection of Set " << currentSet << " and Set " << setNumber << endl;
-		sets[currentSet].intersection(sets[setNumber]);
+		sets[currentSet].print();
+		sets[setNumber].print();
+		try {
+			cout << "\nIntersection: " << endl;
+			sets[currentSet].intersection(sets[setNumber]);
+		} catch (Set::Exceptions ex) {
+			switch (ex)
+			{
+				case Set::EMPTY : cout << "empty set" << endl; break;
+			}
+		}
 	}
 	else
 	{
