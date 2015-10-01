@@ -13,10 +13,12 @@
 
 using namespace std;
 
+// constructor
+// a programban egy futas soran csak 10 db halmazt tudunk letrehozni
 App::App()
 {
 	size = 1;
-	sets = new Set[10];
+	sets = new Set[10]; // ez a szam barmikor megvaltoztathato
 	sets[0] = *(new Set());
 	currentSet = 0;
 }
@@ -133,6 +135,7 @@ void App::remove()
 
 void App::print()
 {
+	cout << "\nSet " << currentSet << ":";
 	sets[currentSet].print();
 }
 
@@ -174,8 +177,8 @@ void App::intersection()
 		cout << "Intersection of Set " << currentSet << " and Set " << setNumber << endl;
 		sets[currentSet].print();
 		sets[setNumber].print();
+		cout << "\nIntersection: " << endl;
 		try {
-			cout << "\nIntersection: " << endl;
 			sets[currentSet].intersection(sets[setNumber]);
 		} catch (Set::Exceptions ex) {
 			switch (ex)
