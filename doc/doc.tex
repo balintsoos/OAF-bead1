@@ -1,0 +1,184 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin2]{inputenc}
+\usepackage[magyar]{babel}
+
+% használt betûtípusok  beállítása
+\usepackage{palatino}
+\usepackage{courier}
+
+%%% felsõ és alsó margó beállítása, elhagyható
+\usepackage[top=3cm,bottom=2cm,inner=2.5cm,outer=2.5cm]{geometry}
+
+% bekezdés behúzásának átállítása
+\setlength{\parindent}{0pt} 
+
+% matematikai képletek írásához
+\usepackage{amsmath}   
+\usepackage{amssymb}
+
+% függvények kapcsolódási szerkezetének rajzolásához
+\usepackage{tikz}
+\usetikzlibrary{shapes}
+
+% stuki rajzolásához be kell tölteni a .tex forrásfájllal azonos könyvtárba helyezett stuki.sty-t
+\usepackage{stuki}
+
+% programkód megjelenítéséhez
+\usepackage{listings}
+\lstset{language=C++, basicstyle=\ttfamily, keywordstyle=\color{blue}\ttfamily, stringstyle=\color{red}\ttfamily}
+
+% specifikáció állapotterében \alatt{arg1}{arg2} saját paranccsal adható meg
+% az arg1 típusértékhalmaz és a hozzá tartozó arg2 változó
+\newcommand*{\alatt}[2]{\underset{\mathop{\vrule height 5pt width 0pt\relax #2}}{#1}}
+
+% a specifikáció utófeltételében használt nagy függvények definiálása
+\DeclareMathOperator*{\SEARCH}{\textit{\small \textbf{SEARCH}}}
+\DeclareMathOperator*{\SELECT}{\textit{\small \textbf{SELECT}}}
+\DeclareMathOperator*{\MAX}{\textit{\small \textbf{MAX}}}
+
+%%% az adatokat tartalmazó doboz rajzolásához
+\usepackage{tcolorbox}
+
+% sorszámozott listához
+\usepackage{enumitem}
+
+% több oszlopos bekezdések
+\usepackage{multicol}
+
+\usepackage{graphicx}
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%% SZEMÉLYES ADATOK %%%%%%%%%%%%%%%%%%%%
+\begin{center}
+\begin{tcolorbox}[title=\Large{\textsc{Objektum elvû alkalmazások fejlesztése}}\\Dokumentáció az 1. házi feladathoz,arc=0mm]
+\begin{minipage}[t]{0.5\textwidth}
+	\textbf{Név:} Soós Bálint\\
+	\textbf{Neptun kód:} HDX9MU\\
+	\textbf{Elérhetõség:} soba95@inf.elte.hu
+\end{minipage}
+\begin{minipage}[t]{0.5\textwidth}\raggedleft{
+	\textbf{Csoport:} 8.\\
+	\textbf{Feladatszám:} 7.\\
+	\today}
+\end{minipage}
+\end{tcolorbox}
+\end{center}
+\vspace{18pt}
+
+%%%%%%%%%%%%%%%%%%%% FELADAT LEÍRÁSA %%%%%%%%%%%%%%%%%%%%
+{\textbf {Feladatleírás}}\\[6pt]
+Valósítsa meg az egész számokat tartalmazó halmaz típust! A halmazt dinamikusan
+lefoglalt tömb segítségével ábrázolja! Implementálja a szokásos mûveleteket (elem
+betevése, kivétele, üres-e a halmaz, egy elem benne van-e a halmazban), valamint két
+halmaz metszetét, továbbá egy halmaz kiírását, és végül a másoló konstruktort és az
+értékadás operátort! Törekedjen a metszetképzés mûveletigényének
+minimalizálására, a dokumentációban mutasson rá a saját megoldásának
+mûveletigényére!
+
+\vspace{18pt}
+
+{\textbf {Típusérték-halmaz}}\\[6pt]
+Feladatom egy egész számokat tartalmazó halmaz típus megvalósítása, azaz olyan (esetünkben dinamikus) tömb létrehozása, amelyben az elemek nem ismétlõdhetnek.
+
+\vspace{18pt}
+
+{\textbf {Típus-mûveletek}}\\[1pt]
+\begin{enumerate}[topsep=1pt,noitemsep,leftmargin=*]
+	\item \textit{Elem berakása a halmazba}\\[4pt]
+	A felhasználó által megadott egész számot berakjuk a halmaz elemei közé, így a halmaz mérete eggyel nõ. Érdemes megjegyezni, hogy a mûveletet csak akkor kell elvégezni, ha az adott elem még nem szerepel a halmazban.\\
+	\item \textit{Elem kivétele a halmazból}\\[4pt]
+	Elõször megvizsgáljuk, hogy szerepel-e az adott elem a halmazban. Ha igen, akkor az elemet eltávolítjuk a halmazból, így mérete eggyel csökken.\\
+	\item \textit{Üres-e a halmaz}\\[4pt]
+	Megvizsgáljuk, hogy a halmazban van-e elem, azaz a halmaz üres, ha mérete 0.\\
+	\item \textit{Elem benne van-e a halmazban}\\[4pt]
+	Szerepel-e az adott elem a halmaz elemei között.\\
+	\item \textit{Halmaz kiírása}\\[4pt]
+	Megjelenítjük a halmaz méretét, és az elemek listáját.\\
+	\item \textit{Két halmaz metszete}\\[4pt]
+	Két halmaz metszete egy olyan halmaz, melynek elemei mindkét halmaznak is elemei.\\
+\end{enumerate}
+
+{\textbf {Reprezentáció}}\\[6pt]
+Az egész számokat tartalmazó halmazt egy dinamikusan lefoglalt, egydimenziós, 1-tõl n-ig indexelt tömbbel ábrázoltam, amelynek méretét (tömb hosszúságát) egy külön változóban tárolom. Az halmazmûveletek hatékonyságát szem elõtt tartva a tömb elemei rendezve vannak. A rendezéshez a beszúró rendezés algoritmusát használtam.\\
+
+{\textbf {Implementáció}}\\[2pt]
+\begin{enumerate}[topsep=1pt,noitemsep,leftmargin=*]
+	\item \textit{Elem berakása a halmazba}\\
+	\item \textit{Elem kivétele a halmazból}\\
+	\item \textit{Üres-e a halmaz}\\
+	\item \textit{Elem benne van-e a halmazban}\\
+	\item \textit{Halmaz kiírása}\\
+	\item \textit{Két halmaz metszete}\\
+\end{enumerate}
+
+{\textbf {Osztály}}\\[2pt]
+Az egész számokat tartalmazó halmaz típust egy Set nevû osztály segítségével valósítottam meg.
+\begin{table}[h]
+	\centering
+	\begin{tabular}{|l|l|l|l|}
+		\cline{1-2} \cline{4-4}
+		\multicolumn{2}{|l|}{\textbf{Set}} & \textbf{} & \textbf{Exceptions} \\ \cline{1-2} \cline{4-4} 
+		\multicolumn{2}{|l|}{\begin{tabular}[c]{@{}l@{}}-items: int*\\ -size: int\end{tabular}} &  &  \\ \hline
+		\multicolumn{2}{|l|}{\begin{tabular}[c]{@{}l@{}}+Set()\\+Set(int)\\ +Set(Set\&)\\ +operator=(Set\&) : Set\\ +put(int) : void \\ +remove(int) : void \\ +print() : void \\ +intersection(Set\&) : void \\ +isContain(int) : bool \\ +isEmpty() : bool \\ +getSize() : int \\ +getItems() : int* \\\end{tabular}} & \multicolumn{1}{c|}{{\color[HTML]{000000} }} & \begin{tabular}[c]{@{}l@{}}+EMPTY\\ +CONTAIN\\ +INVALID\_ITEM\end{tabular} \\ \cline{1-2} \cline{4-4} 
+	\end{tabular}
+\end{table}
+
+Az osztály-definíciót a set.h fejállományban helyeztem el.
+
+\newpage
+%%%%%%%%%%%%%%%%%%%% TESZTELÉSI TERV %%%%%%%%%%%%%%%%%%%%
+{\textbf {Tesztelési terv:}}%\\[2pt]
+\begin{enumerate}[topsep=2pt,noitemsep,label=\Roman*),leftmargin=*]
+\item A feladat specifikációjára épülõ (fekete doboz) tesztesetek: \\(számlálás tétel tesztesetei)
+	  \begin{enumerate}[noitemsep,label=\arabic*)]
+	  	\item \textbf {Bekezdések száma szerint}
+	  	\begin{enumerate}[noitemsep,label=\alph*)]
+	  		\item nulla:  Egyetlen bekezdés sincs (üres fájl)\\
+	  		\hspace{14pt} teszt0.txt: [] - Válasz: \textit{Megfelelõ bekezdések száma: 0}
+	  		
+	  		\item egy: Egyetlen bekezdés van\\
+			  	\textbf {Sorok száma szerint:}
+		  		\begin{enumerate}[noitemsep,label=\Roman*)]
+		  			\item egy sor van (tartalmazza az alma szót)\\
+		  			\hspace{14pt} teszt1.txt - Válasz: \textit{Megfelelõ bekezdések száma: 1}
+		  			
+		  			\item több sor van (minden sor tartalmazza az alma szót)\\
+		  			\hspace{14pt} teszt2.txt - Válasz: \textit{Megfelelõ bekezdések száma: 1}                
+		  		\end{enumerate}
+	  		\item több bekezdés van:\\
+		  		\textbf {Sorok száma szerint:}
+		  		\begin{enumerate}[noitemsep,label=\Roman*)]
+		  			\item egy sor van bekezdésenként (nem mindegyik tartalmazza a szót)\\
+		  			\hspace{14pt} teszt3.txt - Válasz: \textit{Megfelelõ bekezdések száma: 2}
+		  			
+		  			\item több sor is van bekezdésenként\\
+		  			\hspace{14pt} teszt4.txt - Válasz: \textit{Megfelelõ bekezdések száma: 2}               
+		  		\end{enumerate}
+	  	\end{enumerate}
+	  	
+	  	\item \textbf {Elsõ és az utolsó bekezdés szerint:}\\
+		  	Csak az elsõ és az utolsó bekezdés tartalmazza a szót\\
+		  	\hspace{14pt} teszt5.txt - Válasz: \textit{Megfelelõ bekezdések száma: 2}\\
+	  	\item \textbf{Elsõ és az utolsó sor szerint:}
+		  \begin{enumerate}[noitemsep,label=\alph*)]
+		  	\item Csak az elsõ sor nem tartalmazza a szót\\
+		  	\hspace{14pt} teszt6.txt: - Válasz: \textit{Megfelelõ bekezdések száma: 0}\\
+		  	
+		  	\item Csak az utolsó sor nem tartalmazza a szót\\
+		  	\hspace{14pt} teszt7.txt: - Válasz: \textit{Megfelelõ bekezdések száma: 0}\\
+		  \end{enumerate}
+	  \end{enumerate}
+\item A megoldó programra épülõ (fehér doboz) tesztesetek:
+   \begin{enumerate}[noitemsep,label=\arabic*)]
+   \item Hibás vagy nem létezõ állománynév megadása.\\
+	     \hspace{14pt} teszt-x.txt: [ ] - Hibaüzenet: \textit{A megadott fájl nem található!}\\
+   \item Ismételt futtatás kipróbálása: Ha a program helyes lefutása végén a \textit{Kívánja újraindítani a programot? (I/N)} kérdéshez \textit{n} vagy \textit{N} karaktereket írunk, a program leáll, minden más esetben újraindítja a ciklust.\\
+   \item Olyan állomány olvasása, ahol az utolsó sort nem zárja sorvége jel, és éppen ennek a sornak a tartalma határozza meg az eredményt\\
+	     \hspace{14pt} teszt2.txt - Válasz: \textit{Megfelelõ bekezdések száma: 1}\\
+   \end{enumerate}
+   Az egyes alprogramok fehérdoboz tesztjét a fenti tesztesetek lefedik, ennél a fogva az egyedi
+   felsorolót megvalósító osztály metódusait is.
+\end{enumerate}
+\end{document}

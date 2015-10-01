@@ -133,6 +133,7 @@ void App::remove()
 
 void App::print()
 {
+	cout << "\nSet " << currentSet << ":";
 	sets[currentSet].print();
 }
 
