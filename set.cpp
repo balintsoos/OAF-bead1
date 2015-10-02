@@ -62,7 +62,7 @@ Set& Set::operator= (Set& s)
 
 // elem berakasa a halmazba
 // ha a dinamikus tombunk ures, 0. indexre berakjuk ay elemet
-// ha merete nagzobb mint 0 es az adott elem nincs benne a halmazba
+// ha merete nagyobb mint 0 es az adott elem nincs benne a halmazba
 // akkor letrehozunk egy eggyel hosszabb ideiglenes tombot, majd
 // a beszurasos rendezes algoritmusat alkalmazva atmasoljuk az elemeket
 // majd az ideiglenesbol atmasoljuk az eredeti tombbe
