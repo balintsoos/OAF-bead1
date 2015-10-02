@@ -92,7 +92,7 @@ void App::changeCurrentSet()
 	int setNumber = -1;
 	cout << "Set number: ";
 	cin >> setNumber;
-	if(setNumber < size) {
+	if(setNumber < size && setNumber >= 0) {
 		currentSet = setNumber;
 	}
 	else
@@ -172,7 +172,7 @@ void App::intersection()
 	int setNumber = -1;
 	cout << "Set number: ";
 	cin >> setNumber;
-	if(setNumber < size)
+	if(setNumber < size && setNumber >= 0)
 	{
 		cout << "Intersection of Set " << currentSet << " and Set " << setNumber << endl;
 		sets[currentSet].print();

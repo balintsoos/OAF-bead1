@@ -105,12 +105,43 @@ Az egész számokat tartalmazó halmazt egy dinamikusan lefoglalt, egydimenziós, 1-
 
 {\textbf {Implementáció}}\\[2pt]
 \begin{enumerate}[topsep=1pt,noitemsep,leftmargin=*]
-	\item \textit{Elem berakása a halmazba}\\
-	\item \textit{Elem kivétele a halmazból}\\
-	\item \textit{Üres-e a halmaz}\\
-	\item \textit{Elem benne van-e a halmazban}\\
-	\item \textit{Halmaz kiírása}\\
-	\item \textit{Két halmaz metszete}\\
+	\item \textit{Elem berakása a halmazba (put)}\\[4pt]
+	\item \textit{Elem kivétele a halmazból (remove)}\\[4pt]
+	\item \textit{Üres-e a halmaz (isEmpty)}\\[4pt]
+	Ha a tömb hosszúsága 0, akkor a tömb üres.
+	\begin{stuki}
+		\stm{empty := false}
+		\begin{IF}{1}{\stm{size = 0}}
+			\stm{empty := true}
+			\ELSE
+			\stm{-}
+		\end{IF}
+		\stm{return: empty}
+	\end{stuki}
+	\item \textit{Elem benne van-e a halmazban (isContain)}\\[4pt]
+	items[]: halmaz elemeit tartamazó dinamikusan lefoglalt tömb, size: a tömb hosszúsága (halmaz mérete)
+	\begin{stuki}
+		\stm{found := false}
+		\stm{i := 0}
+		\begin{WHILE}{2}{\stm{i < size \wedge \neg found}}
+			\begin{IF}{1}{\stm{items[i] = n}}
+				\stm{found = true}
+				\ELSE
+				\stm{-}
+			\end{IF}
+		\end{WHILE}
+		\stm{return: found}
+	\end{stuki}
+	\item \textit{Halmaz kiírása (print)}\\[4pt]
+	Tömb elemein végiglépdelve kiírjuk a kimenetre az elemek értékeit. (a programban a tömb hosszúságát is kiírjuk) 
+	\begin{stuki}
+		\stm{i:= 0}
+		\begin{WHILE}{2}{\stm{i < size}}
+			\stm{output: items[i]}
+			\stm{i:=i+1}
+		\end{WHILE}
+	\end{stuki}
+	\item \textit{Két halmaz metszete (intersection)}\\[4pt]
 \end{enumerate}
 
 {\textbf {Osztály}}\\[2pt]
